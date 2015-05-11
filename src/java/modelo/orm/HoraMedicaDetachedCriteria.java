@@ -26,6 +26,7 @@ public class HoraMedicaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final AssociationExpression box;
 	public final IntegerExpression esAPS;
 	public final StringExpression fecha;
+        public final StringExpression hora;
 	
 	public HoraMedicaDetachedCriteria() {
 		super(modelo.orm.HoraMedica.class, modelo.orm.HoraMedicaCriteria.class);
@@ -36,6 +37,7 @@ public class HoraMedicaDetachedCriteria extends AbstractORMDetachedCriteria {
 		box = new AssociationExpression("box", this.getDetachedCriteria());
 		esAPS = new IntegerExpression("esAPS", this.getDetachedCriteria());
 		fecha = new StringExpression("fecha", this.getDetachedCriteria());
+                hora = new StringExpression("hora", this.getDetachedCriteria());
 	}
 	
 	public HoraMedicaDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -47,6 +49,7 @@ public class HoraMedicaDetachedCriteria extends AbstractORMDetachedCriteria {
 		box = new AssociationExpression("box", this.getDetachedCriteria());
 		esAPS = new IntegerExpression("esAPS", this.getDetachedCriteria());
 		fecha = new StringExpression("fecha", this.getDetachedCriteria());
+                hora = new StringExpression("hora", this.getDetachedCriteria());
 	}
 	
 	public MedicoDetachedCriteria createMedicoCriteria() {

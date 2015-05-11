@@ -79,6 +79,7 @@ public class Reserva implements Serializable {
 		return personaQueRegistra;
 	}
 	
+        @Override
 	public String toString() {
 		return String.valueOf(getId());
 	}

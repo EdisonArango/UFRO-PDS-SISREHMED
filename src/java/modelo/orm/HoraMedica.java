@@ -42,10 +42,13 @@ public class HoraMedica implements Serializable {
 	private Integer esAPS;
 	
         /**
-         * Formato de fecha DD/MM/AAAA;HH:MM
+         * Formato de fecha DD/MM/AAAA
          */
-	@Column(name="fecha", nullable=true, length=16)	
+	@Column(name="fecha", nullable=true, length=10)	
 	private String fecha;
+        
+        @Column(name="hora", nullable=true, length=5)	
+	private String hora;
 	
 	private void setId(int value) {
 		this.id = value;
@@ -78,6 +81,14 @@ public class HoraMedica implements Serializable {
 	public String getFecha() {
 		return fecha;
 	}
+
+        public String getHora() {
+            return hora;
+        }
+
+        public void setHora(String hora) {
+            this.hora = hora;
+        }
 	
 	public void setMedico(modelo.orm.Medico value) {
 		this.medico = value;

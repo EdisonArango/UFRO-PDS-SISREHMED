@@ -22,10 +22,12 @@ $(document).ready(function() {
 //
 //    $("#contenido").load("CancionesServlet?type=pagina");
     
-    $('#sandbox-container .input-group.date').datepicker({
+    $('.input-group.date').datepicker({
                         format: "dd/mm/yyyy",
                         startDate: "today",
                         endDate: "+100d",
+                        orientation: "top auto",
+                        autoclose: true,
                         todayBtn: "linked",
                         language: "es"
     });

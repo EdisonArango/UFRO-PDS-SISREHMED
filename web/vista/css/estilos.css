@@ -1,61 +1,121 @@
+/*
+ * Base structure
+ */
+
+/* Move down content because we have a fixed navbar that is 50px tall */
 body {
-  padding-top: 60px;
+  padding-top: 50px;
 }
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
+
+
+/*
+ * Global add-ons
+ */
+
+.sub-header {
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/*
+ * Top navigation
+ * Hide default border to remove 1px line.
+ */
+.navbar-fixed-top {
+  border: 0;
+}
+
+/*
+ * Sidebar
+ */
+
+/* Hide for mobile, show later */
+.sidebar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 30px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+    width: 20%;
   }
 }
 
-/* uncomment this section to make the sidebar un-pin
-.affix-top {
-	top:60px;
-    position:fixed;
+/* Sidebar navigation */
+.nav-sidebar {
+  margin-right: -21px; /* 20px padding + 1px border */
+  margin-bottom: 20px;
+  margin-left: -20px;
+}
+.nav-sidebar > li > label {
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
-.affix {
-    position:static;
-}
-*/
-
-.affix-top {
-	top:60px;
-    position:fixed;
+.nav-sidebar > li  {
+  padding-bottom: 10px;
 }
 
-/* custom theme */
-    
-#midCol.affix-top {
-    position:fixed;
-  	margin-left:-18px;
-  	margin-right:10px;
+.nav-sidebar > li > h4 {
+  padding-left: 10px;
 }
 
-#midCol.affix-bottom {
-	position:static;
+.input-sidebar {
+  margin-left: 20px;
+  width: 85%;
 }
 
-#midCol.affix {
-    position:static;
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
 }
 
-@media (max-width:1190px) {
-  .affix,.affix-top,#midCol.affix,#midCol.affix-top {
-      position:static;
+
+/*
+ * Main content
+ */
+
+.main {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  .main {
+    padding-right: 20px;
+    padding-left: 60px;
   }
 }
-
-.caption {
-	background-color:#eee;
-  	padding:10px;
-    margin:0;
-	color:#555;
+.main .page-header {
+  margin-top: 0;
 }
 
-.derecha{
-  float:right;  
-  }
 
+/*
+ * Placeholder dashboard ideas
+ */
 
+.placeholders {
+  margin-bottom: 30px;
+  text-align: center;
+}
+.placeholders h4 {
+  margin-bottom: 0;
+}
+.placeholder {
+  margin-bottom: 20px;
+}
+.placeholder img {
+  display: inline-block;
+  border-radius: 50%;
+}
 
-	

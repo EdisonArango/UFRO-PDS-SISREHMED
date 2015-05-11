@@ -64,7 +64,8 @@ CREATE TABLE IF NOT EXISTS `HoraMedica` (
   `idMedico` int(10) NOT NULL,
   `idBox` int(10) NOT NULL,
   `esAPS` int(1) DEFAULT NULL,
-  `fecha` varchar(10) DEFAULT NULL
+  `fecha` varchar(10) DEFAULT NULL,
+  `hora` varchar(5) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

@@ -26,6 +26,7 @@ public class HoraMedicaCriteria extends AbstractORMCriteria {
 	public final AssociationExpression box;
 	public final IntegerExpression esAPS;
 	public final StringExpression fecha;
+        public final StringExpression hora;
 	
 	public HoraMedicaCriteria(Criteria criteria) {
 		super(criteria);
@@ -36,6 +37,7 @@ public class HoraMedicaCriteria extends AbstractORMCriteria {
 		box = new AssociationExpression("box", this);
 		esAPS = new IntegerExpression("esAPS", this);
 		fecha = new StringExpression("fecha", this);
+                hora = new StringExpression("hora", this);
 	}
 	
 	public HoraMedicaCriteria(PersistentSession session) {

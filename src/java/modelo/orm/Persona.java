@@ -52,7 +52,7 @@ public class Persona implements Serializable {
 	@Column(name="login", nullable=true, length=100)	
 	private String login;
 	
-	@Column(name="pass", nullable=true, length=20)	
+	@Column(name="pass", nullable=true, length=32)	
 	private String pass;
 	
 	@Column(name="email", nullable=true, length=255)	
