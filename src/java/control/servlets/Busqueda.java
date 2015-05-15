@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import control.servicios.Reserva;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.personas.Medico;
 import org.orm.PersistentException;
 
 /**
@@ -42,6 +43,8 @@ public class Busqueda extends HttpServlet {
         if (tipo==null) {
             tipo="";
         }
+        
+       request.setAttribute("medicos", Medico.obtenerTodosLosMedicos());
         String fechaIn,fechaFin;
         
         switch (tipo) {

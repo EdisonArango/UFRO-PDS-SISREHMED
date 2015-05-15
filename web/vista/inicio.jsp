@@ -4,6 +4,7 @@
     Author     : edisonarango
 --%>
 
+<%@page import="modelo.personas.Medico"%>
 <%@page import="modelo.hospital.HoraMedica"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,12 +12,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" href="vista/lib/bootstrap/css/bootstrap.min.css"/>
         <link rel="stylesheet" href="vista/lib/bootstrap-datepicker/css/bootstrap-datepicker3.min.css"/>
-        <link rel="stylesheet" href="vista/lib/bootstrap/css/bootstrap.min.css"/>       
         <link rel="stylesheet" href="vista/css/estilos.css"/>
         <!--<link rel="stylesheet" href="lib/bootstrap/css/bootstrap-theme.min.css"/>-->
         
-        <script src="vista/lib/jquery1.11.2.js"></script>
+        <script src="vista/lib/jquery1.11.2.js"></script>      
         <script src="vista/lib/bootstrap/js/bootstrap.min.js"></script>
         <script src="vista/lib/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script> 
         <script src="vista/lib/bootstrap-datepicker/locales/bootstrap-datepicker.es.min.js"></script> 
@@ -26,22 +28,22 @@
     </head>
     <body>
         <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">SISREHMED</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right" style="padding-right: 15px">
-            <li><a href="#">Ingresar al sistema</a></li>
-          </ul>
-        </div>
-      </div>
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">SISREHMED</a>
+              </div>
+              <div class="navbar-collapse collapse">
+                  <ul class="nav navbar-nav navbar-right" style="padding-right: 15px">
+                  <li><a href="#">Ingresar al sistema</a></li>
+                </ul>
+              </div>
+            </div>
     </div>
 
     <div class="container-fluid">
@@ -69,7 +71,16 @@
               </li>
               <li>
                   <label for="inputmedico">Médico</label>
-                  <input type="text" name="medico" class="form-control input-sidebar" id="inputmedico" placeholder="Ingrese nombre de médico">
+                  <select class="input-sidebar form-control" name="medico" style="width:80%;">
+                      <%
+                          Medico[] medicos = (Medico[])request.getAttribute("medicos");
+                          for (int i=0; i<medicos.length;i++){
+                              out.print("<option value='"+medicos[i].getId()+"'>"+medicos[i].getNombre()+" "+medicos[i].getApellido()+"</option>");
+                          }
+                          
+                       %>
+<!--                      <option value="1">Pepito Perez</option>-->
+                  </select>
               </li>
               <li>
                   <label for="fechaIn">Desde:</label>
@@ -147,60 +158,5 @@
         </div>
       </div>
     </div>
-        
-<!--     <div class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-              <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-              </a>
-              <a class="brand" href="#">SISREHMED</a>
-              <div class="nav-collapse collapse">
-                <ul class="nav nav pills">
-                          <li class="active"><a href="#">Inicio</a></li>
-                </ul>
-                <ul class="nav nav-pills pull-right">
-                          <li><a href="#">Ingreso al sistema</a></li>
-                </ul>
-              </div>
-            </div>
-        </div>-->
-<!--        <div class="container-fluid">
-                <div class="row-fluid">
-                        <div class="span2">
-                  sidebar
-                  <div class="sidebar-nav-fixed" data-spy="affix" data-offset-top="140">
-                    <form>
-                        <ul class="nav nav-list">
-                          <li><h4>Busqueda</h4></li>
-                          <li>
-                            <select name="tipo" style="width:80%;">
-                              <option value="medico">Búsqueda por médico</option>
-                              <option value="especialidad">Búsqueda por especialidad</option>
-                            </select>
-                          </li>
-                            <li><label for="medico"><b><small>Médico:</small></b></label></li>
-                          <li><input type="text" name="medico" class="input-medium"></li>
-                          <li><label for="desde"><b><small>Desde:</small></b></label></li>
-                          <li>
-                              <div class="input-group date">
-                                  <input type="text" name="desde" class="form-control input-medium">
-                                  <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i>
-                                  </span>
-                              </div>
-                            </li>
-                          <li class="divider"></li>
-                          <li><a href="#">Carousel</a></li>
-                        </ul>
-                    </form>
-                  </div>
-                </div>
-                <div class="span10">
-                    <table class="table">
-                        <thead><tr><th>#</th></tr></thead>
-                        <tbody><tr><td>#</td></tr></tbody>
-                    </table>
-                </div>
-                </div>
-        </div>-->
     </body>
 </html>

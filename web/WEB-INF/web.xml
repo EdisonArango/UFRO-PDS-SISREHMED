@@ -9,6 +9,6 @@
         <url-pattern>/Inicio</url-pattern>
     </servlet-mapping>-->
     <welcome-file-list>
-        <welcome-file>vista/inicio.jsp</welcome-file>
+        <welcome-file>Busqueda</welcome-file>
     </welcome-file-list>
 </web-app>

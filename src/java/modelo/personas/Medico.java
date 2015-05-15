@@ -30,6 +30,15 @@ public class Medico extends Persona {
             return medicoORMAMedico(medicoORM);
         }
         
+        public static Medico[] obtenerTodosLosMedicos() throws PersistentException{
+            modelo.orm.Medico[] medicosORM = modelo.orm.MedicoDAO.listMedicoByQuery(null, null);
+            Medico[] medicos = new Medico[medicosORM.length];
+            for (int i = 0; i < medicosORM.length; i++) {
+                medicos[i] = Medico.medicoORMAMedico(medicosORM[i]);
+            }
+            return medicos;
+        }
+        
         /**
          * Error, validar que atributos pueden ser nulos
          * @param medicoORM
